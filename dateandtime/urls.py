@@ -16,6 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from example import views
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("", views.ReminderCreateView.as_view(), name="reminder_create"),
+    path(
+        "reminders/<int:pk>",
+        views.ReminderDetailView.as_view(),
+        name="reminder_detail_view",
+    ),
 ]
